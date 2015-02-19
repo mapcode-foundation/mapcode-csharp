@@ -43,6 +43,8 @@
     <Compile Include="Common.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="DataAccess.cs" />
+    <Compile Include="Decoder.cs" />
+    <Compile Include="ParentTerritory.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Range.cs" />
@@ -52,6 +54,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SubArea.cs" />
+    <Compile Include="Territory.cs" />
+    <Compile Include="UnknownMapcodeException.cs" />
+    <Compile Include="UnknownTerritoryException.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources.resx">
@@ -60,6 +65,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Resources\mminfo.dat" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

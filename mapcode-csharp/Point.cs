@@ -262,7 +262,7 @@ namespace mapcode.com
         /// Only within the mapcode implementation points can be undefined, so this methods is private.
         /// </summary>
         /// <returns>Undefined point @Nonnull</returns>
-        private static Point undefined()
+        public static Point undefined()
         {
             return new Point();
         }
@@ -271,7 +271,7 @@ namespace mapcode.com
         /// Set a point to be undefined, invalidating the latitude and longitude.
         /// Only within the mapcode implementation points can be undefined, so this methods is private.
         /// </summary>
-        private void setUndefined()
+        public void setUndefined()
         {
             latDeg = Double.NaN;
             lonDeg = Double.NaN;
@@ -283,17 +283,17 @@ namespace mapcode.com
         /// Only within the mapcode implementation points can be undefined, so this methods is private.
         /// </summary>
         /// <returns>True if defined. If false, no lat/lon is available.</returns>
-        private bool isDefined()
+        public bool isDefined()
         {
             return defined;
         }
 
-        private static double DegreeToRadian(double angle)
+        public static double DegreeToRadian(double angle)
         {
             return angle * (Math.PI / 180.0);
         }
 
-        private static double RadianToDegree(double angle)
+        public static double RadianToDegree(double angle)
         {
             return angle * (180.0 / Math.PI);
         }
