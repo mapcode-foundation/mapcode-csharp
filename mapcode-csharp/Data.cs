@@ -28,7 +28,7 @@ namespace mapcode.com
     /// <remarks>For internal use within the Mapcode implementation only.</remarks>
     internal class Data
     {
-        public static readonly char[] ENCODE_CHARS =
+        private static readonly char[] ENCODE_CHARS =
             new char[] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'B', 'C', 'D', 'F',
             'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'};
 
@@ -156,17 +156,17 @@ namespace mapcode.com
             }
         }
 
-        public Data(int i)
+        Data(int i)
         {
             dataSetup(i);
         }
 
-        public Data()
+        Data()
         {
             initialized = false;
         }
 
-        public void dataSetup(int i)
+        private void dataSetup(int i)
         {
             flags = DataAccess.DataFlags(i);
             codexHi = CalcCodexHi(flags);

@@ -38,37 +38,37 @@ namespace mapcode.com
             this.max = range.max;
         }
 
-        public T getMin()
+        T getMin()
         {
             System.Diagnostics.Debug.Assert(min != null);
             return min;
         }
 
-        public T getMax()
+        T getMax()
         {
             System.Diagnostics.Debug.Assert(max != null);
             return max;
         }
 
-        public bool contains(T value)
+        bool contains(T value)
         {
             System.Diagnostics.Debug.Assert(value != null);
             return (value.CompareTo(min) >= 0) && (value.CompareTo(max) <= 0);
         }
 
-        public bool containsRange(Range<T> range)
+        bool containsRange(Range<T> range)
         {
             System.Diagnostics.Debug.Assert(range != null);
             return this.min.CompareTo(range.getMin()) <= 0 && this.max.CompareTo(range.getMax()) >= 0;
         }
 
-        public bool intersects(Range<T> range)
+        bool intersects(Range<T> range)
         {
             System.Diagnostics.Debug.Assert(range != null);
             return range.contains(min) || range.contains(max) || contains(range.max) || contains(range.min);
         }
 
-        public Range<T> constrain(Range<T> constrainingRange)
+        Range<T> constrain(Range<T> constrainingRange)
         {
             System.Diagnostics.Debug.Assert(constrainingRange != null);
             T newMin = this.min;
@@ -90,10 +90,10 @@ namespace mapcode.com
             return new Range<T>(newMin, newMax);
         }
 
-        public List<Range<T>> constrain(List<Range<T>> constrainingRanges)
+        Range<T>[] constrain(Range<T>[] constrainingRanges)
         {
             System.Diagnostics.Debug.Assert(constrainingRanges != null);
-            List<Range<T>> rv = null;
+            Range<T>[] rv = null;
             List<Range<T>> resultRanges = new List<Range<T>>();
             foreach (Range<T> range in constrainingRanges)
             {
@@ -105,7 +105,7 @@ namespace mapcode.com
             }
             if (resultRanges.Count != 0)
             {
-                rv = resultRanges;
+                rv = resultRanges.ToArray();
             }
             return rv;
         }
